@@ -5,8 +5,8 @@ Version:	2.8.0
 Release:	1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-geode-%{version}.tar.bz2
-# Source0-md5:	ee7c6e5513182f2bfe1b3338623ba698
+Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-geode-%{version}.tar.gz
+# Source0-md5:	2bc7cdca8db443d1cd1858ebb05002f3
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -65,5 +65,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc COPYING ChangeLog README TODO
-%attr(755,root,root) %{_libdir}/xorg/modules/drivers/amd_drv.so
+%attr(755,root,root) %{_libdir}/xorg/modules/drivers/geode_drv.so
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/ztv_drv.so
