@@ -22,7 +22,7 @@ BuildRequires:	xorg-util-util-macros >= 0.99.2
 BuildRequires:	xorg-xserver-server-devel >= 1.3.0.0
 %requires_xorg_xserver_videodrv
 Requires:	xorg-xserver-server >= 1.3.0.0
-Obsoletes:	xorg-driver-video-ati < 2.8.0
+Obsoletes:	xorg-driver-video-amd < 2.8.0
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
