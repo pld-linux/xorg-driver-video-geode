@@ -5,8 +5,8 @@ Version:	2.8.0
 Release:	1
 License:	MIT
 Group:		X11/Applications
-Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-geode-%{version}.tar.gz
-# Source0-md5:	2bc7cdca8db443d1cd1858ebb05002f3
+Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-geode-%{version}.tar.bz2
+# Source0-md5:	a2b9c70a32b0a6436d837d67fa7aae18
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
