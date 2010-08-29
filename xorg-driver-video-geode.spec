@@ -8,7 +8,7 @@ Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-geode-%{version}.tar.bz2
 # Source0-md5:	718afca8425aa62662c03a9083915be1
 URL:		http://xorg.freedesktop.org/
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
@@ -18,22 +18,36 @@ BuildRequires:	xorg-proto-fontsproto-devel
 BuildRequires:	xorg-proto-randrproto-devel
 BuildRequires:	xorg-proto-renderproto-devel
 BuildRequires:	xorg-proto-videoproto-devel
-BuildRequires:	xorg-proto-xf86dgaproto-devel
-BuildRequires:	xorg-util-util-macros >= 0.99.2
+BuildRequires:	xorg-proto-xextproto-devel >= 7.0.99.1
+BuildRequires:	xorg-util-util-macros >= 1.4
 BuildRequires:	xorg-xserver-server-devel >= 1.3.0.0
-%requires_xorg_xserver_videodrv
+%{?requires_xorg_xserver_videodrv}
 Requires:	xorg-xserver-server >= 1.3.0.0
 Obsoletes:	xorg-driver-video-amd < 2.8.0
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-X.org video driver for AMD Geode GX and LX integrated graphics
-chipsets.
+X.org video driver for AMD Geode GX (GX2) and LX (GX3) integrated
+graphics chipsets.
+
+Note: currently this driver doesn't support Geode GX1 chips by Cyrix
+  and NSC.
+- NSC Geode (GX2/SCx200/SC1400) chips are supported by
+  xorg-driver-video-nsc driver,
+- Cyrix Geode MediaGX (GX1) chips are supported by
+  xorg-driver-video-cyrix driver.
 
 %description -l pl.UTF-8
 Sterownik obrazu X.org dla zintegrowanych układów graficznych AMD
-Geode GX i LX.
+Geode GX (GX2) i LX (GX3).
+
+Uwaga: aktualnie ten sterownik nie obsługuje układów Geode GX1
+produkowanych przez firmy Cyrix i NSC. Układy:
+- NSC Geode (GX2/SCx200/SC1400) są obsługiwane przez sterownik
+  xorg-driver-video-nsc,
+- Cyrix Geode MediaGX (GX1) są obsługiwane przez sterownik
+  xorg-driver-video-cyrix.
 
 %prep
 %setup -q -n xf86-video-geode-%{version}
@@ -44,8 +58,7 @@ Geode GX i LX.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure \
-	--disable-static
+%configure
 
 %{__make}
 
@@ -65,6 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog README TODO
+%doc COPYING ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/geode_drv.so
 %attr(755,root,root) %{_libdir}/xorg/modules/drivers/ztv_drv.so
