@@ -1,12 +1,12 @@
 Summary:	X.org video driver for AMD Geode integrated graphics chipsets
 Summary(pl.UTF-8):	Sterownik obrazu X.org dla zintegrowanych układów graficznych AMD Geode
 Name:		xorg-driver-video-geode
-Version:	2.11.9
+Version:	2.11.10
 Release:	1
 License:	MIT
 Group:		X11/Applications
 Source0:	http://xorg.freedesktop.org/releases/individual/driver/xf86-video-geode-%{version}.tar.bz2
-# Source0-md5:	718afca8425aa62662c03a9083915be1
+# Source0-md5:	8161cd380673c44177245d1d84366219
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -68,7 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/xorg/modules/drivers/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/xorg/modules/drivers/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
